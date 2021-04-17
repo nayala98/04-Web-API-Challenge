@@ -9,25 +9,34 @@ var questionOne = function() {
 
     //question 1
     var questionOne = document.createElement("h1");
+    questionOne.className = "question-one";
     questionOne.textContent = "Commonly Used data types DO NOT Include:";
     questionOneContainer.appendChild(questionOne);
 
     //Answers for question 1
+    var answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+    questionOneContainer.appendChild(answerContainer);
+
     var answerOne = document.createElement("button");
-    answerOne.textContent = "strings";
-    questionOneContainer.appendChild(answerOne);
+    answerOne.className = "answer-One";
+    answerOne.textContent = "1. strings";
+    answerContainer.appendChild(answerOne);
 
     var answerTwo = document.createElement("button");
-    answerTwo.textContent = "booleans";
-    questionOneContainer.appendChild(answerTwo);
+    answerTwo.className = "answer-Two";
+    answerTwo.textContent = "2. booleans";
+    answerContainer.appendChild(answerTwo);
 
     var answerThree = document.createElement("button");
-    answerThree.textContent = "alerts";
-    questionOneContainer.appendChild(answerThree);
+    answerThree.className = "answer-Three";
+    answerThree.textContent = "3. alerts";
+    answerContainer.appendChild(answerThree);
 
     var answerFour = document.createElement("button");
-    answerFour.textContent = "numbers";
-    questionOneContainer.appendChild(answerFour);
+    answerFour.className = "answer-Four";
+    answerFour.textContent = "4. numbers";
+    answerContainer.appendChild(answerFour);
 
 
     console.log("Question One");
