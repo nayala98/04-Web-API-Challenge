@@ -1,11 +1,11 @@
 //Main Page
-var main = document.querySelector("#main");
+var mainEl = document.querySelector("#main");
 
 //Creating aspects of the STart Page| container, title, main paragraph, and quiz button
 var start = function() {
     var container = document.createElement("div");
     container.className = "home-container"
-    main.appendChild(container);
+    mainEl.appendChild(container);
 
     var homeHeader = document.createElement("h1");
     homeHeader.className = "home-title";
@@ -23,5 +23,13 @@ var start = function() {
     startQuizBtn.className = "home-btn";
     startQuizBtn.textContent = "Start Quiz";
     container.appendChild(startQuizBtn);
+
+    //Start Button CLick Event
+    startQuizBtn.addEventListener("click", event => {
+        startQuizBtn.remove();
+        homeHeader.remove();
+        homeParagraph.remove();
+    });
 }
+
 start(); 

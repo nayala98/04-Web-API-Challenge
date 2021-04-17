@@ -47,3 +47,8 @@ header {
     border: 2px purple solid;
     border-radius: 10px;
 } 
+
+.home-btn:hover {
+    background-color: rgb(197, 16, 197);
+    border: 2px rgb(197, 16, 197) solid
+} 
