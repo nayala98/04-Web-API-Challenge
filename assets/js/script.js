@@ -1,5 +1,21 @@
 //Main Page
 var mainEl = document.querySelector("#main");
+var timerEl = document.querySelector("#timer");
+var timeLeft = 75;
+
+//Function for timer
+var timer = function() {
+    var timeInterval = setInterval(() => {
+        if (timeLeft > 1) {
+            timerEl.textContent = timeLeft;
+            timeLeft --;
+        } else {
+            timerEl.textContent = "Time is Up";
+            clearInterval(timeInterval);
+        }
+    }, 1000);
+    console.log("Timer Running");
+}
 
 //Function that creates question 1 and its answers
 var questionOne = function() {
@@ -66,6 +82,7 @@ var start = function() {
 
     //Start Button CLick Event
     startQuizBtn.addEventListener("click", event => {
+        timer();
         startQuizBtn.remove();
         homeHeader.remove();
         homeParagraph.remove();
