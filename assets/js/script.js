@@ -191,12 +191,12 @@ var questionOne = function() {
 
 //Question Two
 var questionTwo = function() {
+
     var removeWrong = function() {
-        timeLeft = timeLeft - 10;
-        questionContainer.remove();
         questionThree();
-        console.log("The answer you picked was wrong!");
-    };
+        questionContainer.remove();
+        timeLeft = timeLeft - 10;
+    }
 
     var questionContainer = document.createElement("div");
     questionContainer.className = "question-container";
@@ -204,17 +204,17 @@ var questionTwo = function() {
 
     var question = document.createElement("h1");
     question.className = "question";
-    question.textContent = "The condition in an if / else statement if enclosed with ________.";
+    question.textContent = "The condition in an if / else statement is enclosed with ________.";
     questionContainer.appendChild(question);
 
-    //Answers for Question Two
+    //Answers for question two
     var answerContainer = document.createElement("div");
     answerContainer.className = "answer-container";
     questionContainer.appendChild(answerContainer);
 
     var answerOne = document.createElement("button");
     answerOne.className = "answer-One";
-    answerOne.textContent = "1. Quotes";
+    answerOne.textContent = "1. quotes";
     answerContainer.appendChild(answerOne);
     answerOne.addEventListener("click", event => {
         removeWrong();
@@ -222,26 +222,26 @@ var questionTwo = function() {
 
     var answerTwo = document.createElement("button");
     answerTwo.className = "answer-Two";
-    answerTwo.textContent = "2. Curly Brackets";
+    answerTwo.textContent = "2. curly brackets";
     answerContainer.appendChild(answerTwo);
-    nswerOne.addEventListener("click", event => {
+    answerTwo.addEventListener("click", event => {
         removeWrong();
     });
 
     var answerThree = document.createElement("button");
     answerThree.className = "answer-Three";
-    answerThree.textContent = "3. Paranthesis";
+    answerThree.textContent = "3. parenthesis";
     answerContainer.appendChild(answerThree);
     answerThree.addEventListener("click", event => {
         questionContainer.remove();
         questionThree();
-        console.log("You picked the right answer!");
+        console.log("You picked the right answer");
         points();
     });
 
     var answerFour = document.createElement("button");
     answerFour.className = "answer-Four";
-    answerFour.textContent = "4. Square Brackets";
+    answerFour.textContent = "4. square brackets";
     answerContainer.appendChild(answerFour);
     answerFour.addEventListener("click", event => {
         removeWrong();
