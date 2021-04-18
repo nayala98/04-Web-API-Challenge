@@ -29,6 +29,54 @@ var timer = function() {
     };
 };
 
+//HighScores Page
+var highScores = function() {
+    var highScoreContainer = document.createElement("div");
+    highScoreContainer.className = "hs-container";
+    mainEl.appendChild(highScoreContainer);
+
+    //Page Title
+    var title = document.createElement("h1");
+    title.className = "high-score-title";
+    title.textContent = "High Scores";
+    highScoreContainer.appendChild(title);
+
+    //Displays High Scores
+    var initals = localStorage.getItem("initals");
+    var score = localStorage.getItem("score");
+    var leaderboardScore = document.createElement("p");
+    leaderboardScore.className = "leaderboard-score";
+    leaderboardScore.textContent = "1." + initals + " - " + score;
+    highScoreContainer.appendChild(leaderboardScore);
+
+    var leaderboard = document.createElement("div");
+    leaderboard.className = "leaderboard";
+    highScoreContainer.appendChild(leaderboard);
+
+    //Go Back To Home Page Btn
+    var goBack = document.createElement("button");
+    goBack.className = "go-back-btn";
+    goBack.textContent = "Go Back";
+    leaderboard.appendChild(goBack);
+    goBack.addEventListener("click", event => {
+        totalPoints = 0;
+        highScoreContainer.remove();
+        start();
+    });
+
+    //Clear High Score Btn
+    var clearHighScore = document.createElement("button");
+    clearHighScore.className = "clear-highScore";
+    clearHighScore.textContent = "Clear High Scores";
+    //Removes initials and score form leaderboard
+    clearHighScore.addEventListener("click", event => {
+        localStorage.removeItem("initals")
+        localStorage.removeItem("score")
+        leaderboardScore.remove();
+    });
+    leaderboard.appendChild(clearHighScore);
+};
+
 //Displays score, asks user for initials and stores it
 var enterScore = function() {
     var doneContainer = document.createElement("div");
@@ -69,6 +117,12 @@ var enterScore = function() {
     submit.className = "submit-btn";
     submit.addEventListener("click", event => {
         var initals = document.getElementById("input").value;
+        localStorage.setItem("initals", initals);
+        localStorage.setItem("score", totalPoints);
+        if (initals != initals) {};
+        doneContainer.remove();
+        //Moves to High Score page
+        highScores();
     });
     inputContainer.appendChild(submit);
 };
@@ -178,10 +232,7 @@ var questionTwo = function() {
     answerThree.textContent = "3. Paranthesis";
     answerContainer.appendChild(answerThree);
     answerThree.addEventListener("click", event => {
-        questionContainer.remove();
-        questionThree();
-        console.log("You picked the right answer");
-        points();
+        removeWrong();
     });
 
     var answerFour = document.createElement("button");
