@@ -9,8 +9,7 @@ var end = false;
 var points = function() {
     totalPoints = totalPoints + 10;
     console.log("You have " + totalPoints + " points!");
-}
-
+};
 
 //Function for timer
 var timer = function() {
@@ -28,6 +27,50 @@ var timer = function() {
     if (end === true){
         timerEl.textContent = timeLeft;
     };
+};
+
+//Displays score, asks user for initials and stores it
+var enterScore = function() {
+    var doneContainer = document.createElement("div");
+    doneContainer.className = "done-container";
+    mainEl.appendChild(doneContainer);
+    //Title
+    var done = document.createElement("h1");
+    done.textContent = "All Done!";
+    done.className = "done-title";
+    doneContainer.appendChild(done);
+    //Displays FInal Score
+    var score = document.createElement("h4");
+    score.textContent = "Your final score is " + totalPoints;
+    score.className = "score";
+    doneContainer.appendChild(score); 
+
+    var inputContainer = document.createElement("div");
+    inputContainer.className = "input-container";
+    doneContainer.appendChild(inputContainer);
+
+    //User Initials and setting of said Initials
+    var label = document.createElement("label");
+    label.textContent = "Enter Initials:";
+    label.className = "label";
+    label.setAttribute("for", "input");
+    inputContainer.appendChild(label);
+
+    var initalInput = document.createElement("Input");
+    initalInput.className = "score-input";
+    initalInput.setAttribute("id", "input")
+    initalInput.setAttribute("name", "input");
+    initalInput.setAttribute("type", "text");
+    inputContainer.appendChild(initalInput);
+
+    //Submit button
+    var submit = document.createElement("button");
+    submit.textContent = "Submit";
+    submit.className = "submit-btn";
+    submit.addEventListener("click", event => {
+        var initals = document.getElementById("input").value;
+    });
+    inputContainer.appendChild(submit);
 };
 
 //Question One
