@@ -60,6 +60,8 @@ var highScores = function() {
     leaderboard.appendChild(goBack);
     goBack.addEventListener("click", event => {
         totalPoints = 0;
+        end = false;
+        timeLeft = 75;
         highScoreContainer.remove();
         start();
     });
@@ -119,7 +121,6 @@ var enterScore = function() {
         var initals = document.getElementById("input").value;
         localStorage.setItem("initals", initals);
         localStorage.setItem("score", totalPoints);
-        if (initals != initals) {};
         doneContainer.remove();
         //Moves to High Score page
         highScores();
@@ -191,10 +192,10 @@ var questionOne = function() {
 //Question Two
 var questionTwo = function() {
     var removeWrong = function() {
-        timeLeft = timeLeft -10;
+        timeLeft = timeLeft - 10;
         questionContainer.remove();
         questionThree();
-        console.log("The answer you picked was wrong");
+        console.log("The answer you picked was wrong!");
     };
 
     var questionContainer = document.createElement("div");
@@ -232,7 +233,10 @@ var questionTwo = function() {
     answerThree.textContent = "3. Paranthesis";
     answerContainer.appendChild(answerThree);
     answerThree.addEventListener("click", event => {
-        removeWrong();
+        questionContainer.remove();
+        questionThree();
+        console.log("You picked the right answer!");
+        points();
     });
 
     var answerFour = document.createElement("button");
@@ -240,11 +244,8 @@ var questionTwo = function() {
     answerFour.textContent = "4. Square Brackets";
     answerContainer.appendChild(answerFour);
     answerFour.addEventListener("click", event => {
-        questionContainer.remove();
-        questionThree();
-        console.log("You picked the right answer");
-        points();
-    })
+        removeWrong();
+    });
 };
 
 //Question Three
@@ -253,7 +254,7 @@ var questionThree = function() {
             timeLeft = timeLeft - 10;
             questionContainer.remove();
             questionFour();
-            console.log("The answer you picked was wrong");
+            console.log("The answer you picked was wrong!");
         };
 
         var questionContainer = document.createElement("div");
