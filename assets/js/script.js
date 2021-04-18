@@ -266,6 +266,66 @@ var questionFour = function() {
         })
 };
 
+//Question Five
+var questionFive = function() {
+    var removeWrong = function() {;
+        questionContainer.remove();
+        enterScore();
+        console.log("The answer you picked was wrong");
+        end = true;
+    };
+
+    var questionContainer = document.createElement("div");
+    questionContainer.className = "question-container";
+    mainEl.appendChild(questionContainer);
+
+    var question = document.createElement("h1");
+    question.className = "question";
+    question.textContent = "What's another word for case sensitive";
+    questionContainer.appendChild(question);
+
+    // question Five Answers
+    var answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+    questionContainer.appendChild(answerContainer);
+
+    var answerOne = document.createElement("button");
+    answerOne.className = "answer-One";
+    answerOne.textContent = "1. CamelCasing";
+    answerContainer.appendChild(answerOne);
+    answerOne.addEventListener("click", event => {
+        questionContainer.remove();
+        enterScore();
+        console.log("You picked the right answer");
+        points();
+        end = true;
+    });
+
+    var answerTwo = document.createElement("button");
+    answerTwo.className = "answer-Two";
+    answerTwo.textContent = "2. Uppercase";
+    answerContainer.appendChild(answerTwo);
+    answerTwo.addEventListener("click", event => {
+        removeWrong();
+    });
+
+    var answerThree = document.createElement("button");
+    answerThree.className = "answer-Three";
+    answerThree.textContent = "3. Case Sensitive";
+    answerContainer.appendChild(answerThree);
+    answerThree.addEventListener("click", event => {
+        removeWrong();
+    });
+
+    var answerFour = document.createElement("button");
+    answerFour.className = "answer-Four";
+    answerFour.textContent = "4. No Clue";
+    answerContainer.appendChild(answerFour);
+    answerFour.addEventListener("click", event => {
+        removeWrong();
+    });
+};
+
 //Creating aspects of the Start Page| container, title, main paragraph, and quiz button
 var start = function() {
     var container = document.createElement("div");
