@@ -3,6 +3,7 @@ var mainEl = document.querySelector("#main");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
 var totalPoints = 0;
+var end = false;
 
 //Adds 10 points, also tells user how many points they have
 var points = function() {
@@ -14,15 +15,19 @@ var points = function() {
 //Function for timer
 var timer = function() {
     var timeInterval = setInterval(() => {
-        if (timeLeft > 1) {
+        if (end === false) {
             timerEl.textContent = timeLeft;
             timeLeft --;
+            return timeLeft;
         } else {
-            timerEl.textContent = "Time is Up";
+            timerEl.textContent = " ";
             clearInterval(timeInterval);
         }
     }, 1000);
     console.log("Timer Running");
+    if (end === true){
+        timerEl.textContent = timeLeft;
+    };
 };
 
 //Question One
@@ -260,7 +265,7 @@ var questionFour = function() {
         answerContainer.appendChild(answerFour);
         answerFour.addEventListener("click", event => {
             questionContainer.remove();
-            questionFour();
+            questionFive();
             console.log("You picked the right answer");
             points();
         })
@@ -294,10 +299,10 @@ var questionFive = function() {
     answerOne.textContent = "1. CamelCasing";
     answerContainer.appendChild(answerOne);
     answerOne.addEventListener("click", event => {
+        points();
         questionContainer.remove();
         enterScore();
         console.log("You picked the right answer");
-        points();
         end = true;
     });
 
