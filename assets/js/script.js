@@ -2,6 +2,14 @@
 var mainEl = document.querySelector("#main");
 var timerEl = document.querySelector("#timer");
 var timeLeft = 75;
+var totalPoints = 0;
+
+//Adds 10 points, also tells user how many points they have
+var points = function() {
+    totalPoints = totalPoints + 10;
+    console.log("You have " + totalPoints + " points!");
+}
+
 
 //Function for timer
 var timer = function() {
@@ -15,10 +23,20 @@ var timer = function() {
         }
     }, 1000);
     console.log("Timer Running");
-}
+};
+
+var questionTwo = function() {
+
+};
 
 //Function that creates question 1 and its answers
 var questionOne = function() {
+    var removeWrong = function() {
+        timeLeft = timeLeft - 10;
+        questionOneContainer.remove();
+        questionTwo();
+        console.log("The answer you picked was wrong");
+    };
     var questionOneContainer = document.createElement("div");
     questionOneContainer.className = "question-one-container";
     mainEl.appendChild(questionOneContainer);
@@ -38,25 +56,39 @@ var questionOne = function() {
     answerOne.className = "answer-One";
     answerOne.textContent = "1. strings";
     answerContainer.appendChild(answerOne);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    });
 
     var answerTwo = document.createElement("button");
     answerTwo.className = "answer-Two";
     answerTwo.textContent = "2. booleans";
     answerContainer.appendChild(answerTwo);
+    answerTwo.addEventListener("click", event => {
+        removeWrong();
+    });
 
     var answerThree = document.createElement("button");
     answerThree.className = "answer-Three";
     answerThree.textContent = "3. alerts";
     answerContainer.appendChild(answerThree);
+    answerThree.addEventListener("click", event => {
+        questionOneContainer.remove();
+        questionTwo();
+        console.log("You picked the right answer");
+        points();
+    });
 
     var answerFour = document.createElement("button");
     answerFour.className = "answer-Four";
     answerFour.textContent = "4. numbers";
     answerContainer.appendChild(answerFour);
-
+    answerFour.addEventListener("click", event => {
+        removeWrong();
+    });
 
     console.log("Question One");
-}
+};
 //Creating aspects of the Start Page| container, title, main paragraph, and quiz button
 var start = function() {
     var container = document.createElement("div");
@@ -88,6 +120,6 @@ var start = function() {
         homeParagraph.remove();
         questionOne();
     });
-}
+};
 
 start(); 
