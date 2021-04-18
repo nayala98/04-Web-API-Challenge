@@ -55,13 +55,13 @@ header {
     background-color: var(--hoverColor);
     border: 2px var(--hoverColor) solid;
 } 
-/*Question One Styling*/
-.question-one-container {
+/*General Question Styling*/
+.question-container {
     display: grid;
     grid-template-columns: .5fr .85fr .5fr;
     grid-template-rows: 1fr 2fr;
 }
-.question-one {
+.question {
     grid-row: 1 / 2;
     grid-column: 2 / 3;
     padding: 10px 15px;
@@ -78,7 +78,7 @@ header {
 .answer-One {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
-    max-width: 110px;
+    max-width: 200px;
     max-height: 50px;
     text-align: left;
     padding: 10px 15px;
@@ -96,7 +96,7 @@ header {
 .answer-Two {
     grid-row: 2 / 3;
     grid-column: 1 / 2;
-    max-width: 110px;
+    max-width: 200px;
     max-height: 50px;
     text-align: left;
     padding: 10px 15px;
@@ -113,7 +113,7 @@ header {
 .answer-Three {
     grid-row: 3 / 4;
     grid-column: 1 / 2;
-    max-width: 110px;
+    max-width: 200px;
     max-height: 50px;
     text-align: left;
     padding: 10px 15px;
@@ -130,7 +130,7 @@ header {
 .answer-Four {
     grid-row: 4 / 5;
     grid-column: 1 / 2;
-    max-width: 110px;
+    max-width: 200px;
     max-height: 50px;
     text-align: left;
     padding: 10px 15px;

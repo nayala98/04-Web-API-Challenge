@@ -25,32 +25,28 @@ var timer = function() {
     console.log("Timer Running");
 };
 
-var questionTwo = function() {
-
-};
-
-//Function that creates question 1 and its answers
+//Question One
 var questionOne = function() {
     var removeWrong = function() {
         timeLeft = timeLeft - 10;
-        questionOneContainer.remove();
+        questionContainer.remove();
         questionTwo();
         console.log("The answer you picked was wrong");
     };
-    var questionOneContainer = document.createElement("div");
-    questionOneContainer.className = "question-one-container";
-    mainEl.appendChild(questionOneContainer);
 
-    //question 1
-    var questionOne = document.createElement("h1");
-    questionOne.className = "question-one";
-    questionOne.textContent = "Commonly Used data types DO NOT Include:";
-    questionOneContainer.appendChild(questionOne);
+    var questionContainer = document.createElement("div");
+    questionContainer.className = "question-container";
+    mainEl.appendChild(questionContainer);
 
-    //Answers for question 1
+    var question = document.createElement("h1");
+    question.className = "question";
+    question.textContent = "Commonly Used data types DO NOT Include:";
+    questionContainer.appendChild(question);
+
+    //Answers for Question One
     var answerContainer = document.createElement("div");
     answerContainer.className = "answer-container";
-    questionOneContainer.appendChild(answerContainer);
+    questionContainer.appendChild(answerContainer);
 
     var answerOne = document.createElement("button");
     answerOne.className = "answer-One";
@@ -73,7 +69,7 @@ var questionOne = function() {
     answerThree.textContent = "3. alerts";
     answerContainer.appendChild(answerThree);
     answerThree.addEventListener("click", event => {
-        questionOneContainer.remove();
+        questionContainer.remove();
         questionTwo();
         console.log("You picked the right answer");
         points();
@@ -89,6 +85,187 @@ var questionOne = function() {
 
     console.log("Question One");
 };
+
+//Question Two
+var questionTwo = function() {
+    var removeWrong = function() {
+        timeLeft = timeLeft -10;
+        questionContainer.remove();
+        questionThree();
+        console.log("The answer you picked was wrong");
+    };
+
+    var questionContainer = document.createElement("div");
+    questionContainer.className = "question-container";
+    mainEl.appendChild(questionContainer);
+
+    var question = document.createElement("h1");
+    question.className = "question";
+    question.textContent = "The condition in an if / else statement if enclosed with ________.";
+    questionContainer.appendChild(question);
+
+    //Answers for Question Two
+    var answerContainer = document.createElement("div");
+    answerContainer.className = "answer-container";
+    questionContainer.appendChild(answerContainer);
+
+    var answerOne = document.createElement("button");
+    answerOne.className = "answer-One";
+    answerOne.textContent = "1. Quotes";
+    answerContainer.appendChild(answerOne);
+    answerOne.addEventListener("click", event => {
+        removeWrong();
+    });
+
+    var answerTwo = document.createElement("button");
+    answerTwo.className = "answer-Two";
+    answerTwo.textContent = "2. Curly Brackets";
+    answerContainer.appendChild(answerTwo);
+    nswerOne.addEventListener("click", event => {
+        removeWrong();
+    });
+
+    var answerThree = document.createElement("button");
+    answerThree.className = "answer-Three";
+    answerThree.textContent = "3. Paranthesis";
+    answerContainer.appendChild(answerThree);
+    answerThree.addEventListener("click", event => {
+        questionContainer.remove();
+        questionThree();
+        console.log("You picked the right answer");
+        points();
+    });
+
+    var answerFour = document.createElement("button");
+    answerFour.className = "answer-Four";
+    answerFour.textContent = "4. Square Brackets";
+    answerContainer.appendChild(answerFour);
+    answerFour.addEventListener("click", event => {
+        questionContainer.remove();
+        questionThree();
+        console.log("You picked the right answer");
+        points();
+    })
+};
+
+//Question Three
+var questionThree = function() {
+        var removeWrong = function() {
+            timeLeft = timeLeft - 10;
+            questionContainer.remove();
+            questionFour();
+            console.log("The answer you picked was wrong");
+        };
+
+        var questionContainer = document.createElement("div");
+        questionContainer.className = "question-container";
+        mainEl.appendChild(questionContainer);
+
+        var question = document.createElement("h1");
+        question.className = "question";
+        question.textContent = "Arrays in JavaScript can be used to store __________.";
+        questionContainer.appendChild(question);
+
+        // question Three Answers
+        var answerContainer = document.createElement("div");
+        answerContainer.className = "answer-container";
+        questionContainer.appendChild(answerContainer);
+
+        var answerOne = document.createElement("button");
+        answerOne.className = "answer-One";
+        answerOne.textContent = "1. numbers & strings";
+        answerContainer.appendChild(answerOne);
+        answerOne.addEventListener("click", event => {
+            removeWrong();
+        });
+
+        var answerTwo = document.createElement("button");
+        answerTwo.className = "answer-Two";
+        answerTwo.textContent = "2. Other Arrays";
+        answerContainer.appendChild(answerTwo);
+        answerTwo.addEventListener("click", event => {
+            removeWrong();
+        });
+
+        var answerThree = document.createElement("button");
+        answerThree.className = "answer-Three";
+        answerThree.textContent = "3. Booleans";
+        answerContainer.appendChild(answerThree);
+        answerThree.addEventListener("click", event => {
+            removeWrong();
+        });
+
+        var answerFour = document.createElement("button");
+        answerFour.className = "answer-Four";
+        answerFour.textContent = "4. All of the above";
+        answerContainer.appendChild(answerFour);
+        answerFour.addEventListener("click", event => {
+            questionContainer.remove();
+            questionFour();
+            console.log("You picked the right answer");
+            points();
+        });
+};
+
+//Question Four
+var questionFour = function() {
+        var removeWrong = function() {
+            timeLeft = timeLeft - 10;
+            questionContainer.remove();
+            questionFive();
+            console.log("The answer you picked was wrong");
+        }
+
+        var questionContainer = document.createElement("div");
+        questionContainer.className = "question-container";
+        mainEl.appendChild(questionContainer);
+
+        var question = document.createElement("h1");
+        question.className = "question";
+        question.textContent = "What does assigning a variable null do:";
+        questionContainer.appendChild(question);
+    
+        //Question Four Answers
+        var answerContainer = document.createElement("div");
+        answerContainer.className = "answer-container";
+        questionContainer.appendChild(answerContainer);
+
+        var answerOne = document.createElement("button");
+        answerOne.className = "answer-One";
+        answerOne.textContent = "1. number";
+        answerContainer.appendChild(answerOne);
+        answerOne.addEventListener("click", event => {
+            removeWrong();
+        })
+
+        var answerTwo = document.createElement("button");
+        answerTwo.className = "answer-Two";
+        answerTwo.textContent = "2. String";
+        answerContainer.appendChild(answerTwo);
+        answerTwo.addEventListener("click", event => {
+            removeWrong();
+        })
+
+        var answerThree = document.createElement("button");
+        answerThree.className = "answer-Three";
+        answerThree.textContent = "3. Undefined";
+        answerContainer.appendChild(answerThree);
+        answerThree.addEventListener("click", event => {
+            removeWrong();
+        })
+
+        var answerFour = document.createElement("button");
+        answerFour.className = "answer-Four";
+        answerFour.textContent = "4. Nothing";
+        answerContainer.appendChild(answerFour);
+        answerFour.addEventListener("click", event => {
+            questionContainer.remove();
+            questionFour();
+            console.log("You picked the right answer");
+            points();
+        })
+};
+
 //Creating aspects of the Start Page| container, title, main paragraph, and quiz button
 var start = function() {
     var container = document.createElement("div");
